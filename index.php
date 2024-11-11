@@ -2,45 +2,45 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Customer Catalog</title>
+  <title>Catálogo de clientes</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 </head>
 <body>
   <div class = "container">
     <div class="jumbotron">
-      <h1 class="display-4">Customer Catalog</h1>
-      <p class="lead">Customer Catalog Sample Application</p>
+      <h1 class="display-4">Catálogo de clientes</h1>
+      <p class="lead">Aplicación de muestra del catálogo de clientes</p>
       <hr class="my-4">
-      <p>PHP sample application connected to a MySQL database to list a customer catalog</p>
+      <p>Aplicación de muestra PHP conectada a una base de datos MySQL para enumerar un catálogo de clientes</p>
     </div>
     <table class="table table-striped table-responsive">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Credit Rating</th>
-          <th>Address</th>
-          <th>City</th>
-          <th>State</th>
-          <th>Country</th>
-          <th>Zip</th>
+          <th>Nombre</th>
+          <th>Calificación crediticia</th>
+          <th>Direccion</th>
+          <th>Ciudad</th>
+          <th>Provincia</th>
+          <th>País</th>
+          <th>Codigo Postal</th>
         </tr>
       </thead>
       <tbody>
         <?php
 
-        $conexion = mysqli_connect(getenv('MYSQL_HOST'), getenv('MYSQL_USER'), getenv('MYSQL_PASSWORD'), "SG");
+        $conexion = mysqli_connect(getenv('MYSQL_HOST'), getenv('MYSQL_USER'), getenv('MYSQL_PASSWORD'), "PRUEBA");
 
-        $cadenaSQL = "select * from s_customer";
+        $cadenaSQL = "select * from s_cliente";
         $resultado = mysqli_query($conexion, $cadenaSQL);
 
         while ($fila = mysqli_fetch_object($resultado)) {
-         echo "<tr><td> " .$fila->name . 
-         "</td><td>" . $fila->credit_rating .
-         "</td><td>" . $fila->address .
-         "</td><td>" . $fila->city .
-         "</td><td>" . $fila->state .
-         "</td><td>" . $fila->country .
-         "</td><td>" . $fila->zip_code .
+         echo "<tr><td> " .$fila->nombre . 
+         "</td><td>" . $fila->calificacion_crediticia .
+         "</td><td>" . $fila->direccion .
+         "</td><td>" . $fila->ciudad .
+         "</td><td>" . $fila->provincia .
+         "</td><td>" . $fila->pais .
+         "</td><td>" . $fila->codigo_postal .
          "</td></tr>";
        }
        ?>
